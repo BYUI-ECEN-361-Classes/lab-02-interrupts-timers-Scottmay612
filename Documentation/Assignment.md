@@ -151,4 +151,4 @@ For Seven Segment Display Functions, check the MultiFunctionShield.h header file
 
 If you do any of these items - just mention what and how it worked, [*here*].
 
-I made it so that the final reaction time toggles on and off. To do this, I added boolean variables to remember whether it is displaying the reaction time or not. If it is, it uses the D1 timer to toggle the seven segment display on and off until a different button is pressed. 
+I made it so that the final reaction time flashes on and off. To do this, I added boolean variables to remember whether it is displaying the reaction time or not. If it is, it uses the D1 timer to toggle the seven segment display on and off until a different button is pressed. 
