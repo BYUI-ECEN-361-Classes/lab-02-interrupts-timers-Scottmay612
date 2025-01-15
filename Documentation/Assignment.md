@@ -1,6 +1,6 @@
 # ECEN-361 Lab-02: Clocks, Timers, and Interrupts
 ### Winter-2025
-     Student Name:  Fill-in HERE
+     Student Name:  Scott May
 
 
 ## Introduction and Objective of the Lab
@@ -75,9 +75,13 @@ Note the speed of D1/D2/D3 - they should seem like a 3-bit binary counter.
 
 Once you have all three LEDs blinking properly, answer the following questions:
 
-1. At what frequency does D1 toggle? [*answer here*]
+1. At what frequency does D1 toggle? 
 
-2. Do all LEDs toggle at *exactly* the same time? [*answer here*]
+D1 toggles at 0.5Hz because it is on for 1 second and then off for one second which gives us a period of 2 seconds. 1/2s = 0.5Hz.
+
+2. Do all LEDs toggle at *exactly* the same time? 
+
+No. Each LED has a different frequency and therefore toggles at different times than the others. If it happens to be that they all are turned on at the same time, they still turn on at slightly different times. This is because the ISR has to handle each of the timer interrupts independently and at slightly different moments in time.
 
 ## Part 2: Changing the clock tree
 
@@ -92,11 +96,17 @@ Change the clock tree to adjust the rates at which the LEDs blink.
 
 ## Part 2 Questions (3 pts)
 
-1. What has happened to the speed of the timers? [*answer here*]
+1. What has happened to the speed of the timers? 
 
-2. What is the new frequency of LED D1? [*answer here*]
+The timers are now 4x slower. This is because we divided the APB (Advanced Peripheral Bus) timer by 8 and then the APB timers were multiplied by 2 as shown in the clock configuration page.
 
-3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) [*answer here*]
+2. What is the new frequency of LED D1? 
+
+The frequency that LED D1 toggles is 0.125Hz because the period is 8 seconds. It is on for four seconds, then off for four seconds.
+
+3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) 
+
+Yes, the frequency did change because Tim17 is connected to APB2. We prescaled APB2 by 8 and therefore slowed down the update rate.
 
 ## Part 3: Reaction Timer (5 pts)
 
@@ -140,3 +150,5 @@ For Seven Segment Display Functions, check the MultiFunctionShield.h header file
 * Currently, the reaction tester can have a wait time anywhere between 0 and 7000 milliseconds, Implement a minimum wait time in such a way that doesn't change the potential maximum wait time
 
 If you do any of these items - just mention what and how it worked, [*here*].
+
+I made it so that the final reaction time toggles on and off. To do this, I added boolean variables to remember whether it is displaying the reaction time or not. If it is, it uses the D1 timer to toggle the seven segment display on and off until a different button is pressed. 
