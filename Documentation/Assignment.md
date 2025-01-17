@@ -77,7 +77,7 @@ Once you have all three LEDs blinking properly, answer the following questions:
 
 1. At what frequency does D1 toggle? 
 
-D1 toggles once every second which is 1Hz. However, the frequency of D1 LED is 0.5Hz because it is on for 1 second and then off for one second which gives us a period of 2 seconds. 1/2s = 0.5Hz.
+D1 toggles once every second which is 1Hz. The frequency at which D1 LED turns on is 0.5Hz because it is on for 1 second and then off for one second which gives us a period of 2 seconds. 1/2s = 0.5Hz.
 
 2. Do all LEDs toggle at *exactly* the same time? 
 
@@ -102,7 +102,7 @@ The timers are now 4x slower. This is because we divided the APB (Advanced Perip
 
 2. What is the new frequency of LED D1? 
 
-LED D1 toggles once every four seconds. 1/4s = 0.25Hz. However, the light turns on with a frequency of 0.125Hz because the period is 8 seconds. It is on for four seconds, then off for four seconds.
+LED D1 toggles once every four seconds. 1/4s = 0.25Hz. The light turns on with a frequency of 0.125Hz because the period is 8 seconds. It is on for four seconds, then off for four seconds. 
 
 3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) 
 
