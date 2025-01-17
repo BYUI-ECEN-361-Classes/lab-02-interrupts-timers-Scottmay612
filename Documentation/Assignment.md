@@ -102,7 +102,7 @@ The timers are now 4x slower. This is because we divided the APB (Advanced Perip
 
 2. What is the new frequency of LED D1? 
 
-LED D1 toggles once every four seconds. 1/4s = 0.25Hz. The light turns on with a frequency of 0.125Hz because the period is 8 seconds. It is on for four seconds, then off for four seconds. 
+LED D1 toggles once every four seconds. 1/4s = 0.25Hz. It turns on with a frequency of 0.125Hz because the period is 8 seconds. It is on for four seconds, then off for four seconds. 
 
 3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) 
 
